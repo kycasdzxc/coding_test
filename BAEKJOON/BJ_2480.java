@@ -12,7 +12,7 @@ public class BJ_2480 {
 		int y = input.lastIndexOf(" ");
 
 		int a = Integer.parseInt(input.substring(0, x));
-		int b = Integer.parseInt(input.substring(x+1, y));
+		int b = Integer.parseInt(input.substring(x + 1, y));
 		int c = Integer.parseInt(input.substring(y + 1));
 		
 		if (a > 0 && a <= 6 && b > 0 && b <= 6 && c > 0 && c <= 6) {
@@ -31,7 +31,9 @@ public class BJ_2480 {
 				else if(b > a && b > c) {
 					System.out.println(b * 100);
 				}
-				System.out.println(c * 100);
+				else {
+					System.out.println(c * 100);
+				}
 			}
 		}
 		sc.close();
