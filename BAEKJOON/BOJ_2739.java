@@ -1,8 +1,8 @@
-package springTest.com.crizen.controller;
+package boj;
 
 import java.util.Scanner;
 
-public class BJ_2739 {
+public class BOJ_2739 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int input = Integer.parseInt(sc.nextLine());
