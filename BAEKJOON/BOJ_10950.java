@@ -1,8 +1,8 @@
-package springTest.com.crizen.controller;
+package boj;
 
 import java.util.Scanner;
 
-public class BJ_10950 {
+public class BOJ_10950 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
