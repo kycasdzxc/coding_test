@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Exam2 {
+public class Exam_102 {
 	public static void main(String[] args) throws IOException {
 		// 2. 대소문자 변환
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

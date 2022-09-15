@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Exam1 {
+public class Exam_101 {
 	public static void main(String[] args) throws IOException {
 		// 1. 문자 찾기
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

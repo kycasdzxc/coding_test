@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Exam3 {
+public class Exam_103 {
 	public static void main(String[] args) throws IOException {
 		// 3. 문장 속 단어(indexOf(), substring())
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -2,7 +2,7 @@ package exam;
 
 import java.util.Scanner;
 
-public class Exam4 {
+public class Exam_104 {
 	public static void main(String[] args) {
 		// 4. 단어 뒤집기(StringBuilder 이용법 또는 직접뒤집기)
 		StringBuilder sb = new StringBuilder();

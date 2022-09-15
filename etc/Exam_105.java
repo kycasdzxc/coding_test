@@ -2,7 +2,7 @@ package exam;
 
 import java.util.Scanner;
 
-public class Exam5 {
+public class Exam_105 {
 	public static void main(String[] args) {
 		// 5. 특정 문자 뒤집기(toCharArray())
 		Scanner sc = new Scanner(System.in);
@@ -10,16 +10,23 @@ public class Exam5 {
 		
 		char[] chars = str.toCharArray();
 		
-		int last; // 끝 글자 index
+		int last = chars.length - 1; // 끝 글자 index
 		char tmp; // 담아둘 공간
 		
-		for(int i = 0 ; i < chars.length / 2 ; i++) {
+		for(int i = 0 ; i < chars.length ; i++) {
 			if(checkedAlpabet(chars[i])) {
-				last = chars.length - 1 - i;
+				while(!checkedAlpabet(chars[last])) {
+					last--;
+				}
+				
+				if(last <= i) {
+					break;
+				}
 				
 				tmp = chars[i];
 				chars[i] = chars[last];
 				chars[last] = tmp;
+				last--;
 			}
 		}
 		sc.close();
