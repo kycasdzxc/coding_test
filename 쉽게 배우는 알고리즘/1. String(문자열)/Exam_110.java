@@ -27,10 +27,14 @@ public class Exam_110 {
 			first = nums[0].indexOf(nums[1], pos);
 			second = nums[0].indexOf(nums[1], i);
 			
-			if(i - first < second - i) {
-				sb.append(Math.abs(i -first) + " ");
+			if(second != -1) {
+				if(i - first < second - i) {
+					sb.append(Math.abs(i -first) + " ");
+				} else {
+					sb.append(second - i + " ");
+				}
 			} else {
-				sb.append(second - i + " ");
+				sb.append(Math.abs(i -first) + " ");
 			}
 		}
 		return sb.substring(0, sb.length() - 1).toString();
