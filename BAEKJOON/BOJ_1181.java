@@ -4,30 +4,40 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.Comparator;
 
 public class BOJ_1181 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		StringBuilder sb = new StringBuilder();
 		
-		long[] nums = new long[3];
-		nums[0] = Long.parseLong(st.nextToken());
-		nums[1] = Long.parseLong(st.nextToken());
-		nums[2] = Long.parseLong(st.nextToken());
+		int cnt = Integer.parseInt(br.readLine());
 		
-		while(nums[0] != 0 && nums[1] != 0 && nums[2] != 0) {
-			Arrays.sort(nums);
-			if(Math.pow(nums[0], 2) + Math.pow(nums[1], 2) == Math.pow(nums[2], 2)) {
-				System.out.println("right");
-			} else {
-				System.out.println("wrong");
-			}
-			st = new StringTokenizer(br.readLine(), " ");
-			
-			nums[0] = Long.parseLong(st.nextToken());
-			nums[1] = Long.parseLong(st.nextToken());
-			nums[2] = Long.parseLong(st.nextToken());
+		String[] strs = new String[cnt];
+		
+		for(int i = 0 ; i < cnt ; i++) {
+			strs[i] = br.readLine();
 		}
+		
+		Arrays.sort(strs, new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				// 단어길이가 같을 경우
+				if(o1.length() == o2.length()) {
+					return o1.compareTo(o2);
+				} else {
+					return o1.length() - o2.length();
+				}
+			}
+		});
+		
+		sb.append(strs[0]).append("\n");
+		
+		for(int i = 1 ; i < strs.length ; i++) {
+			if(!strs[i].equals(strs[i-1])) {
+				sb.append(strs[i]).append("\n");
+			}
+		}
+		System.out.println(sb);
 	}
 }
