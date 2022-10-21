@@ -23,10 +23,14 @@ public class BOJ_1652 {
 		int N = 0;
 		
 		for(int i = 0 ; i < cnt ; i++) {
+			boolean flag = false;
 			for(int j = 1 ; j < cnt ; j++) {
-				if(!room[i][j-1].equals("X") && room[i][j-1].equals(room[i][j])) {
+				if(!flag && !room[i][j-1].equals("X") && room[i][j-1].equals(room[i][j])) {
 					N++;
-					break;
+					flag = true;
+				}
+				else if(room[i][j-1].equals("X")) {
+					flag = false;
 				}
 			}
 		}
@@ -34,10 +38,14 @@ public class BOJ_1652 {
 		int M = 0;
 		
 		for(int i = 0 ; i < cnt ; i++) {
+			boolean flag = false;
 			for(int j = 1 ; j < cnt ; j++) {
-				if(!room[i][j-1].equals("X") && room[j-1][i].equals(room[j][i])) {
+				if(!flag && !room[j-1][i].equals("X") && room[j-1][i].equals(room[j][i])) {
 					M++;
-					break;
+					flag = true;
+				}
+				else if(room[j-1][i].equals("X")) {
+					flag = false;
 				}
 			}
 		}
