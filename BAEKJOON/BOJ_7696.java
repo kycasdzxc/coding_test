@@ -8,43 +8,43 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BOJ_7696 {
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		int[] repeat = new int[1000000];
+	static List<Integer> repeat = new ArrayList<Integer>();
+	
+	static {
+		List<String> li;
 		int cnt = 1;
+		boolean flag = true;
 		
-//		List<String> li = new ArrayList<String>(Arrays.asList(str3.split("")));
-//		System.out.println(li.stream().distinct().count());
-		
-		for(int i = 0 ; i < repeat.length ; i++) {
+		for(int i = 0 ; i < 1000000 ; i++) {
 			if(cnt > 9) {
 				while(true) {
-					String tmp = cnt + "";
-					boolean flag = true;
+					flag = true;
 					
-					for(int j = 0 ; j < tmp.length() ; j++) {
-						if(tmp.length() - tmp.replace(String.valueOf(tmp.charAt(j)), "").length() != 1) {
-							flag = false;
-							cnt++;
-							break;
-						}
+					li = Arrays.asList((cnt + "").split(""));
+					
+					if(li.size() != li.stream().distinct().count()) {
+						flag = false;
+						cnt++;
 					}
 					
 					if(flag) {
-						repeat[i] = cnt++;
+						repeat.add(cnt++);
 						break;
 					}
 				}
 			} else {
-				repeat[i] = cnt++;
+				repeat.add(cnt++);
 			}
 		}
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int num = Integer.parseInt(br.readLine());
 		
 		while(num != 0) {
-			System.out.println(repeat[num-1]);
+			System.out.println(repeat.get(num-1));
 			
 			num = Integer.parseInt(br.readLine());
 		}
