@@ -10,6 +10,7 @@ public class Exam_205 {
 		int num = Integer.parseInt(sc.nextLine());
 		
 		System.out.println(eratos(num));
+		System.out.println(solution(num));
 		sc.close();
 	}
 	
@@ -34,6 +35,27 @@ public class Exam_205 {
 		for(int i = 2 ; i < num ; i++) {
 			if(!nums[i]) {
 				for(int j = i * i ; j <= num ; j += i) {
+					nums[j] = true;
+				}
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+	
+	private static int solution(int num) {
+		
+		if(num < 2) { return 0; }
+		
+		boolean[] nums = new boolean[num + 1];
+		
+		nums[0] = nums[1] = true;
+		
+		int cnt = 0;
+		
+		for(int i = 2 ; i < num ; i++) {
+			if(!nums[i]) {
+				for(int j = i ; j <= num ; j += i) {
 					nums[j] = true;
 				}
 				cnt++;
