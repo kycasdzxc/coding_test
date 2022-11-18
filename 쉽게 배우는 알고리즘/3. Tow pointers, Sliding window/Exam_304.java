@@ -7,37 +7,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Exam_303 {
+public class Exam_304 {
 	public static void main(String[] args) throws IOException {
-		// 3. 최대 매출
+		// 4. 연속 부분수열
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		List<Integer> nums = new ArrayList<Integer>();
 		
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-		int days = Integer.parseInt(st.nextToken());
 		int length = Integer.parseInt(st.nextToken());
+		int x = Integer.parseInt(st.nextToken());
 		
-		// 매출 입력
+		// 수열 세팅
 		st = new StringTokenizer(br.readLine(), " ");
 		
-		for(int i = 0 ; i < days ; i++) {
+		for(int i = 0 ; i < length ; i++) {
 			nums.add(Integer.parseInt(st.nextToken()));
 		}
 		
 		int result = 0;
 		
-		// 최대 매출 조회
-		for(int i = 0 ; i < days - length + 1 ; i++) {
+		// 수열 합산 시작
+		for(int i = 0 ; i < length ; i++) {
 			int sum = 0;
 			
 			// 범위만큼 합산
-			for(int j = i ; j < i + length ; j++) {
-				sum += nums.get(j);
+			for(int j = i ; j < length ; j++) {
+				if(sum < x) {
+					sum += nums.get(j);
+				} else {
+					break;
+				}
 			}
 			
-			result = Math.max(result, sum);
+			if(sum == x) {
+				result++;
+			}
 		}
 		
 		System.out.println(result);
